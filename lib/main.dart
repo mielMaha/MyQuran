@@ -31,6 +31,7 @@ class Quran extends StatelessWidget {
             ),
           ),
         ),
+        //maha samer
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
       ),
