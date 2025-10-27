@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:quran2/features/home/data/Apis/timeApi.dart';
 
-import '../../home/data/Apis/Allsurah.dart';
-import '../../home/data/models/surah.dart';
-import '../../home/data/models/timesModel.dart';
-import '../../home/presentation/home_screen.dart';
+import '../home/data/APIs/QuranApi.dart';
+import '../home/data/APIs/TimeApi.dart';
+import '../home/data/models/QuranModel.dart';
+import '../home/data/models/TimeModel.dart';
+import '../home/presentation/HomeScreen.dart';
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+class Splash extends StatelessWidget {
+  const Splash({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,14 @@ class SplashScreen extends StatelessWidget {
             height: 196,
             fit: BoxFit.cover,
           ),
-          Text('My Quran', style: Theme.of(context).textTheme.labelLarge),
+          Text(
+            'My Quran',
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 30,
+              color: Color(0xff9543FF),
+            ),
+          ),
           Text(
             'Baca Al-Quran Degan Mudah',
             style: TextStyle(
@@ -34,10 +41,10 @@ class SplashScreen extends StatelessWidget {
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Color(0xff9543FF)),
-            onPressed: () {
+            onPressed: () async {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
+                MaterialPageRoute(builder: (context) => Homescreen()),
               );
             },
             child: Text(
