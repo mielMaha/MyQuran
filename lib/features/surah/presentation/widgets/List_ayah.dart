@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran2/features/surah/presentation/widgets/surahItem.dart';
+import 'package:quran2/features/surah/presentation/widgets/surah_item.dart';
 
 class ListAyah extends StatelessWidget {
   const ListAyah({super.key, required this.english, required this.arabic1});

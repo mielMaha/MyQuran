@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:quran2/features/surah/data/model/SurahModel.dart';
 
-class Surahapi {
+class SurahApi {
   String root = 'https://quranapi.pages.dev/api/';
 
   Future<SurahModel> getSurah(int surahNo) async {

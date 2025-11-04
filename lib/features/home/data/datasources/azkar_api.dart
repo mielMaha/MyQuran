@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:quran2/features/home/data/models/AzkarModel.dart';
+import 'package:quran2/features/home/data/models/azkar_model.dart';
 
 class AzkarApi {
-  String url = 'https://ahegazy.github.io/muslimKit/json/azkar_sabah.json';
-  Future<List<AzkarModel>> getAzkar() async {
+  AzkarApi();
+
+  Future<List<AzkarModel>> getAzkar(String url) async {
     Response response = await Dio().get(url);
     List<dynamic> list = response.data['content'];
     List<AzkarModel> azkarList = [];

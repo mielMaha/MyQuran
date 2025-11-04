@@ -15,18 +15,26 @@ class _AudiobottonState extends State<Audiobotton> {
   Future<void> sound() async {
     if (isplay) {
       await player.play(UrlSource(widget.url));
+      setState(() {
+        isplay = !isplay;
+      });
     } else {
       player.pause();
+      setState(() {
+        isplay = !isplay;
+      });
     }
-    setState(() {
-      isplay = !isplay;
-    });
   }
 
   Widget build(BuildContext context) {
     return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        minimumSize: Size(360, 60),
+        padding: EdgeInsets.all(10),
+        backgroundColor: Colors.white, // Background color
+      ),
       onPressed: sound,
-      child: Icon(isplay ? Icons.play_arrow : Icons.pause),
+      child: Icon(isplay ? Icons.play_arrow : Icons.pause, size: 50),
     );
   }
 }

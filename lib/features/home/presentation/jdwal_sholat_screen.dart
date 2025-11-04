@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../data/models/timesModel.dart';
+import '../data/models/times_model.dart';
 
 class Jadwalsholat extends StatelessWidget {
   const Jadwalsholat({super.key, required this.timeModel, required this.frist});
@@ -34,7 +34,14 @@ class Jadwalsholat extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   color: Colors.white,
                 ),
-                child: Text('${timeModel.readable}'),
+                child: Text(
+                  '${timeModel.readable}',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ),
               SizedBox(
                 height: 300,
@@ -42,6 +49,7 @@ class Jadwalsholat extends StatelessWidget {
                   children: [
                     ListTile(
                       leading: Icon(Icons.nightlight, color: Colors.white),
+                      titleAlignment: ListTileTitleAlignment.center,
                       title: Text(
                         "Fajr",
                         style: TextStyle(color: Colors.white),
@@ -53,7 +61,7 @@ class Jadwalsholat extends StatelessWidget {
                       ),
                     ),
                     ListTile(
-                      leading: Icon(Icons.nightlight, color: Colors.white),
+                      leading: Icon(Icons.sunny, color: Colors.white),
                       title: Text("Asr", style: TextStyle(color: Colors.white)),
 
                       trailing: Text(
@@ -62,7 +70,7 @@ class Jadwalsholat extends StatelessWidget {
                       ),
                     ),
                     ListTile(
-                      leading: Icon(Icons.nightlight, color: Colors.white),
+                      leading: Icon(Icons.sunny_snowing, color: Colors.white),
                       title: Text(
                         "Dhuhr",
                         style: TextStyle(color: Colors.white),
@@ -74,26 +82,30 @@ class Jadwalsholat extends StatelessWidget {
                       ),
                     ),
                     ListTile(
-                      leading: Icon(Icons.nightlight, color: Colors.white),
+                      leading: Icon(Icons.cloud, color: Colors.white),
                       title: Text(
-                        "Fajr",
+                        "Sunset",
                         style: TextStyle(color: Colors.white),
                       ),
 
                       trailing: Text(
-                        '${timeModel.timings["Fajr"]}',
+                        '${timeModel.timings["Sunset"]}',
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                     ListTile(
-                      leading: Icon(Icons.nightlight, color: Colors.white),
+                      leading: Image(
+                        image: AssetImage('assets/cloudy-night.png'),
+                        width: 24,
+                        height: 24,
+                      ),
                       title: Text(
-                        "Fajr",
+                        "Isha",
                         style: TextStyle(color: Colors.white),
                       ),
 
                       trailing: Text(
-                        '${timeModel.timings["Fajr"]}',
+                        '${timeModel.timings["Isha"]}',
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -103,11 +115,15 @@ class Jadwalsholat extends StatelessWidget {
             ],
           ),
           Positioned(
-            left: 160,
-            top: 180,
+            left: 120,
+            top: 150,
             child: Text(
               "${frist.key} ${DateFormat("HH:mm").format(frist.value)}",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ),
         ],

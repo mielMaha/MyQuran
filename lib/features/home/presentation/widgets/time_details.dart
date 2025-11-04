@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:quran2/features/home/presentation/cubits/TimeCubit/TimeStates.dart';
+import 'package:quran2/features/home/presentation/cubits/TimeCubit/time_states.dart';
 
-import '../../data/models/timesModel.dart';
-import '../JadwalSholat.dart';
-import '../cubits/TimeCubit/timeCubit.dart';
+import '../../data/models/times_model.dart';
+import '../jdwal_sholat_screen.dart';
+import '../cubits/TimeCubit/time_cubit.dart';
 
 class Timedetails extends StatelessWidget {
   const Timedetails({super.key});
@@ -16,7 +16,7 @@ class Timedetails extends StatelessWidget {
       builder: (BuildContext context, TimeStates state) {
         var cubit = BlocProvider.of<TimeCubit>(context);
         TimeModel? timeModel = cubit.timeModel;
-        if (state is sucsessStateTime)
+        if (state is SucsessStateTime)
           return SizedBox(
             width: 180,
             child: Column(
@@ -72,7 +72,7 @@ class Timedetails extends StatelessWidget {
                     );
                   },
                   child: Text(
-                    '${cubit.findFrist().key}',
+                    '${cubit.findFrist().key}${DateFormat(' HH:mm').format(cubit.findFrist().value)}',
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 15,
@@ -83,7 +83,7 @@ class Timedetails extends StatelessWidget {
               ],
             ),
           );
-        if (state is erorrStateTime)
+        if (state is ErorrStateTime)
           return Text('${state.error}');
         else
           return CircularProgressIndicator();

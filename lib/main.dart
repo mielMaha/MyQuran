@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran2/features/auth/presentation/splash_screen.dart';
-import 'package:quran2/features/home/presentation/cubits/QuranCubit/QuranCubit.dart';
 
-import 'features/home/presentation/cubits/AzkarCubit/AzkarCubit.dart';
-import 'features/home/presentation/cubits/TimeCubit/timeCubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:quran2/features/auth/splash_screen.dart';
+
+import 'package:quran2/features/home/presentation/cubits/QuranCubit/quran_cubit.dart';
+
+import 'features/home/presentation/cubits/AzkarCubit/azkar_cubit.dart';
+import 'features/home/presentation/cubits/TimeCubit/time_cubit.dart';
 
 void main() {
   runApp(const Quran());
@@ -18,8 +21,8 @@ class Quran extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => TimeCubit()..getCubitTime()),
-        BlocProvider(create: (context) => QuranCubit()..getCubitQuran()),
-        BlocProvider(create: (context) => Azkarcubit()..getCubitAzkar()),
+        BlocProvider(create: (context) => QuranCubit()..getQuranData()),
+        BlocProvider(create: (context) => AzkarCubit()..getCubitAzkar()),
       ],
       child: MaterialApp(
         theme: ThemeData(
@@ -33,7 +36,7 @@ class Quran extends StatelessWidget {
         ),
         //maha samer
         debugShowCheckedModeBanner: false,
-        home: SplashScreen(),
+        home: Splash(),
       ),
     );
   }

@@ -14,7 +14,7 @@ class Surah {
     required this.totalAyah,
   });
 
-  factory Surah.fromJson(Map<String, dynamic> json) {
+  factory Surah.fromJson(Map json) {
     return Surah(
       surahName: json['surahName'] as String? ?? '',
       surahNameArabic: json['surahNameArabic'] as String? ?? '',

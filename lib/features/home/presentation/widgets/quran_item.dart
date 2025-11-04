@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran2/features/surah/presentation/SurahCubit/SurahCubit.dart';
-import 'package:quran2/features/surah/presentation/SurahCubit/SurahStates.dart';
+import 'package:quran2/features/surah/presentation/SurahCubit/surah_cubit.dart';
+import 'package:quran2/features/surah/presentation/SurahCubit/surah_states.dart';
 
-import '../../../surah/presentation/surah_details.dart';
-import '../../data/models/surah.dart';
+import '../../../surah/presentation/surah_details_screen.dart';
+import '../../data/models/surah_model.dart';
 
 class QuranItem extends StatelessWidget {
   const QuranItem({super.key, required this.surah, required this.index});
@@ -17,8 +17,10 @@ class QuranItem extends StatelessWidget {
       child: BlocConsumer<SurahCubit, Surahstates>(
         builder:
             (BuildContext context, state) => InkWell(
-              onTap: () {
-                BlocProvider.of<SurahCubit>(context).getCubitSurah(index);
+              onTap: () async {
+                await BlocProvider.of<SurahCubit>(
+                  context,
+                ).getCubitSurah(index + 1);
               },
               child: Row(
                 children: [

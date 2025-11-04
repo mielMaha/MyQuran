@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran2/features/home/presentation/widgets/BuilderAzkarList.dart';
-import 'package:quran2/features/home/presentation/widgets/BuilderQuranList.dart';
-import 'package:quran2/features/home/presentation/widgets/timeDetails.dart';
-import 'package:quran2/features/surah/presentation/SurahCubit/SurahCubit.dart';
+import 'package:quran2/features/home/presentation/widgets/builder_azkar_list.dart';
+import 'package:quran2/features/home/presentation/widgets/builder_quran_list.dart';
+import 'package:quran2/features/home/presentation/widgets/time_details.dart';
+import 'package:quran2/features/surah/presentation/SurahCubit/surah_cubit.dart';
 
-import '../data/models/surah.dart';
-import '../data/models/timesModel.dart';
+import '../data/models/surah_model.dart';
+import '../data/models/times_model.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});

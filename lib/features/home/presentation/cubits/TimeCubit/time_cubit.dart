@@ -1,20 +1,20 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
-import '../../../data/Apis/timeApi.dart';
-import '../../../data/models/timesModel.dart';
-import 'TimeStates.dart';
+import '../../../data/datasources/time_api.dart';
+import '../../../data/models/times_model.dart';
+import 'time_states.dart';
 
 class TimeCubit extends Cubit<TimeStates> {
   TimeModel? timeModel;
-  TimeCubit() : super(intalStateTime());
+  TimeCubit() : super(IntalStateTime());
   getCubitTime() async {
-    emit(loudStateTime());
+    emit(LoudStateTime());
     try {
       timeModel = await TimeApi().getTimes();
-      emit(sucsessStateTime());
+      emit(SucsessStateTime());
     } catch (e) {
-      emit(erorrStateTime(e.toString()));
+      emit(ErorrStateTime(e.toString()));
     }
   }
 

@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran2/features/surah/data/model/SurahModel.dart';
-import 'package:quran2/features/surah/data/surahApi.dart';
-import 'package:quran2/features/surah/presentation/SurahCubit/SurahStates.dart';
+import 'package:quran2/features/surah/data/surah_api.dart';
+import 'package:quran2/features/surah/presentation/SurahCubit/surah_states.dart';
 
 class SurahCubit extends Cubit<Surahstates> {
   SurahCubit() : super(intalStateSurah());
@@ -11,7 +11,7 @@ class SurahCubit extends Cubit<Surahstates> {
   getCubitSurah(int n) async {
     emit(loudStateSurah());
     try {
-      surah = await Surahapi().getSurah(n);
+      surah = await SurahApi().getSurah(n);
       emit(sucsessStateSurah());
     } on DioException catch (e) {
       switch (e.type) {

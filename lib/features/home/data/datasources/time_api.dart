@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import '../models/timesModel.dart';
+import '../models/times_model.dart';
 
 class TimeApi {
   String root = 'https://api.aladhan.com/v1';

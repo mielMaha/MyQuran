@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../home/data/APIs/QuranApi.dart';
-import '../home/data/APIs/TimeApi.dart';
-import '../home/data/models/QuranModel.dart';
-import '../home/data/models/TimeModel.dart';
-import '../home/presentation/HomeScreen.dart';
+import 'package:quran2/features/home/presentation/home_screen.dart';
 
 class Splash extends StatelessWidget {
   const Splash({super.key});
@@ -44,7 +39,7 @@ class Splash extends StatelessWidget {
             onPressed: () async {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Homescreen()),
+                MaterialPageRoute(builder: (context) => HomeScreen()),
               );
             },
             child: Text(
